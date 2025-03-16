@@ -213,8 +213,8 @@ def show_results(values):
 
     st.plotly_chart(fig, use_container_width=True, height=50)
 
-    if average <= 2:
-        location()
+    # if average <= 2:
+    #     location()
 
     # Get the current date and time
     now = datetime.now()

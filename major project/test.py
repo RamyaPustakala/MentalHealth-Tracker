@@ -5,7 +5,6 @@ from streamlit_folium import folium_static
 from streamlit_geolocation import streamlit_geolocation
 
 # Initialize Google Maps client
-gmaps = googlemaps.Client(key='AIzaSyAQqwrjtX7HGRur4y8E6nogj3slNllH7KI')  # Replace 'YOUR_API_KEY' with your actual Google Maps API key
 
 # Function to fetch nearby psychiatrists using Google Places API
 def fetch_nearby_psychiatrists(location, radius):

@@ -22,7 +22,7 @@ from streamlit_folium import folium_static
 
 database = 'project_db.sqlite'  # SQLite database file
 
-gmaps = googlemaps.Client(key='AIzaqwrjtX7')  # Replace 'YOUR_API_KEY' with your actual Google Maps API key
+gmaps = googlemaps.Client(key='AIzaSyAQqwrjtX7HGRur4y8E6nogj3slNllH7KI')  # Replace 'YOUR_API_KEY' with your actual Google Maps API key
 
 # Function to fetch nearby psychiatrists using Google Places API
 def fetch_nearby_psychiatrists(location, radius):
@@ -213,8 +213,8 @@ def show_results(values):
 
     st.plotly_chart(fig, use_container_width=True, height=50)
 
-    # if average <= 2:
-    #     location()
+    if average <= 2:
+        location()
 
     # Get the current date and time
     now = datetime.now()
@@ -339,10 +339,6 @@ def show_guidance(conn):
 
     if Dp >= 1 and ss >= 1 and an >= 2:
         st.write("You are doing well, continue practicing Yoga and beat your best.")
-
-    
-def yogatracker():
-     webbrowser.open_new_tab('https://yogaintilligence-ramyapustakala.netlify.app/')
     
 
 def main():
@@ -358,7 +354,7 @@ def main():
 
     # Sidebar
     st.sidebar.title("Go to")
-    page = st.sidebar.radio("", ["Check-In", "Data", "Guidance", "Yoga Tracker"])
+    page = st.sidebar.radio("Navigate to", ["Check-In", "Data", "Guidance"])
 
     if page == "Check-In":
         values = ask_questions()
@@ -370,8 +366,5 @@ def main():
         show_visualization(sqlite3.connect(database))
     elif page == "Guidance":
         show_guidance(sqlite3.connect(database))
-    elif page == 'Yoga Tracker':
-        yogatracker()
-
 if __name__ == "__main__":
     main()
